@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 32),
-            
+
             // Cross-platform implementation card
             Card(
               elevation: 4,
@@ -89,9 +89,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Localhost server implementation card
             Card(
               elevation: 4,
@@ -134,9 +134,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             const Spacer(),
-            
+
             // Info section
             Container(
               padding: const EdgeInsets.all(16.0),
@@ -165,6 +165,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
 
 class SoundWaveHomePage extends StatefulWidget {
   const SoundWaveHomePage({super.key});
@@ -206,9 +207,17 @@ class _SoundWaveHomePageState extends State<SoundWaveHomePage> {
                   onPressed: () => _waveKey.currentState?.setWaveState('PROCESSING'),
                   child: const Text('Processing'),
                 ),
+
+                // ===== NOVO: 1 clique para tocar o asset embutido =====
+                ElevatedButton(
+                  onPressed: () => _waveKey.currentState?.playTestAsset(),
+                  child: const Text('Play Test Asset'),
+                ),
+
+                // Estes continuam funcionando se quiser controle manual:
                 ElevatedButton(
                   onPressed: () => _waveKey.currentState?.attachMedia(
-                    'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+                        'asset:assets/wave/test-audio.mp3',
                     autoplay: true,
                   ),
                   child: const Text('Attach Audio'),
@@ -233,3 +242,4 @@ class _SoundWaveHomePageState extends State<SoundWaveHomePage> {
     );
   }
 }
+
